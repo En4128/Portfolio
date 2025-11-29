@@ -9,8 +9,6 @@ import {
   SiHtml5,
   SiJavascript,
   SiKubernetes,
-  SiMongodb,
-  SiNodedotjs,
   SiPrometheus,
   SiPython,
   SiReact,
@@ -44,7 +42,6 @@ const toolRows: ToolRow[] = [
     tools: [
       { name: 'Python', Icon: SiPython, color: '#FFD43B' },
       { name: 'Express', Icon: SiExpress, color: '#EEEEEE' },
-      { name: 'MongoDB', Icon: SiMongodb, color: '#4DB33D' },
       { name: 'Git', Icon: SiGit, color: '#F05032' },
      
     ],
