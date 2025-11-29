@@ -43,7 +43,6 @@ const toolRows: ToolRow[] = [
     label: 'Python, APIs & Data',
     tools: [
       { name: 'Python', Icon: SiPython, color: '#FFD43B' },
-      { name: 'Node.js', Icon: SiNodedotjs, color: '#8CC84B' },
       { name: 'Express', Icon: SiExpress, color: '#EEEEEE' },
       { name: 'MongoDB', Icon: SiMongodb, color: '#4DB33D' },
       { name: 'Git', Icon: SiGit, color: '#F05032' },
