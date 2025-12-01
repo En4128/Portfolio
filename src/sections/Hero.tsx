@@ -11,7 +11,7 @@ type HeroProps = {
 
 export const Hero = ({ onNavigate }: HeroProps) => (
   <section id="hero" className="relative isolate overflow-hidden pt-24 pb-16 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24">
-    <div className="absolute inset-0 opacity-60 blur-[120px] bg-hero-gradient pointer-events-none" />
+    <div className="absolute inset-0 opacity-60 blur-[120px] pointer-events-none" />
     <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 pointer-events-none" />
     <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
       <motion.div variants={staggerContainer()} initial="hidden" animate="show" className="grid gap-12 lg:grid-cols-[3fr,2fr] items-center">
