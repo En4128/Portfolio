@@ -14,6 +14,14 @@ export default {
           purple: '#a855f7',
           blue: '#60a5fa',
         },
+        custom: {
+          darkest: '#0a0a0a',
+          dark: '#121212',
+          medium: '#1a1a1a',
+          slate: '#2a2a2a',
+          gray: '#3a3a3a',
+          light: '#4a4a4a',
+        },
       },
       backgroundImage: {
         'glass-gradient': 'linear-gradient(135deg, rgba(96,165,250,0.12), rgba(168,85,247,0.18))',
