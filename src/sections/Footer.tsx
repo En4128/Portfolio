@@ -41,11 +41,10 @@ export const Footer = () => (
             href={link.href}
             target={link.href.startsWith('http') ? '_blank' : undefined}
             rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
-            className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-white/70 transition"
-            whileHover={{ y: -6, scale: 1.04 }}
+            className="group flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-3 text-white/70 transition hover:bg-white/10 hover:border-white/30"
+            whileHover={{ y: -6, scale: 1.1, boxShadow: '0 0 20px rgba(255,255,255,0.1)' }}
           >
-            <span className="text-lg text-white/80 transition group-hover:text-white">{iconMap[link.label] ?? <SiGithub />}</span>
-            <span className="text-xs uppercase tracking-[0.3em] group-hover:text-white">{link.label}</span>
+            <span className="text-xl text-white/80 transition group-hover:text-white">{iconMap[link.label] ?? <SiGithub />}</span>
           </motion.a>
         ))}
       </div>
