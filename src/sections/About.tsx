@@ -1,61 +1,138 @@
 import { motion } from 'framer-motion'
-import { Button } from '../components/Button'
-import { Card } from '../components/Card'
-import { SectionHeading } from '../components/SectionHeading'
 import { fadeInUp, staggerContainer } from '../utils/animations'
+import { FiCode, FiZap, FiLayers } from 'react-icons/fi'
 
+const techLabels = [
+  { name: 'Docker', position: '-top-4 -left-8' },
+  { name: 'React.js', position: '-top-4 -right-8' },
+  { name: 'Jenkins', position: '-bottom-4 -right-8' },
+  { name: 'AWS', position: '-bottom-4 -left-8' },
+]
 
-const timeline = [
-  { year: '2024 — 2026', role: 'MCA Computer Application', desc: 'SRM Institute Of Science & Technology, Kattankulathur, Chennai.' },
-  { year: '2021 — 2024', role: 'Bsc Computer Science', desc: 'SRM Institute Of Science & Technology, Kattankulathur, Chennai.' },
+const features = [
+  {
+    icon: <FiCode className="text-2xl" />,
+    title: 'Clean Code',
+    description: 'Writing maintainable code',
+  },
+  {
+    icon: <FiLayers className="text-2xl" />,
+    title: 'DevOps',
+    description: 'Deployment and automation',
+  },
+  {
+    icon: <FiZap className="text-2xl" />,
+    title: 'CI/CD',
+    description: 'Continuous Integration and Deployment',
+  },
 ]
 
 export const About = () => (
   <section id="about" className="py-16 md:py-24">
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 space-y-12">
-      <SectionHeading eyebrow="About Me" title="Building solid systems and communicating them effectively." subtitle="I’m a hardworking and positive person who loves learning new things and improving myself every day." />
-      <motion.div variants={staggerContainer(0.15)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} className="grid gap-8 lg:grid-cols-[1.2fr,0.8fr]">
-        <motion.div variants={fadeInUp(0)} className="space-y-6">
-          <Card className="space-y-6">
-            <p className="text-white/70">
-              I lead engineering efforts that sit at the intersection of platform, product, and people. My approach values clarity—roadmaps that everyone understands, systems that are observable, and
-              experiences that feel effortless. Whether it’s orchestrating async Python workers, crafting motion-rich React surfaces, or hardening CI/CD pipelines, I care about calm impact.
-            </p>
-            <p>
-            - Elangovan
-            </p>
-            <div className="grid gap-4 sm:grid-cols-3">
-            
-             
+    <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <motion.div
+        variants={staggerContainer(0.15)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.3 }}
+        className="grid gap-12 lg:grid-cols-2 items-center"
+      >
+        {/* Left side - Profile Photo with Tech Labels */}
+        <motion.div variants={fadeInUp(0)} className="relative flex justify-center">
+          <div className="relative w-80 h-80">
+            {/* Orbital Rings */}
+            <div className="absolute inset-0 rounded-full border border-white/5"></div>
+            <div className="absolute inset-[-20px] rounded-full border border-white/5"></div>
+            <div className="absolute inset-[-40px] rounded-full border border-white/5"></div>
+
+            {/* Circular Profile Photo */}
+            <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-accent-blue/40 shadow-[0_0_60px_rgba(96,165,250,0.4)]">
+              <img
+                src="/public/img.jpg"
+                alt="Profile"
+                className="w-full h-full object-cover"
+              />
             </div>
-            <div className="flex flex-wrap gap-4">
-              <Button href="/Elangovan_resume.pdf" download>
-                Download CV
-              </Button>
-              <Button variant="ghost" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-                Contact
-              </Button>
-            </div>
-          </Card>
+
+            {/* Floating Tech Labels */}
+            {techLabels.map((tech, index) => (
+              <motion.div
+                key={tech.name}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                whileHover={{ scale: 1.1, y: -5 }}
+                animate={{
+                  y: [0, -10, 0],
+                }}
+                transition={{
+                  delay: 0.2 + index * 0.1,
+                  y: {
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: index * 0.5
+                  }
+                }}
+                className={`absolute ${tech.position} bg-black/80 backdrop-blur-md border border-white/30 rounded-lg px-4 py-2 text-sm font-medium shadow-lg hover:border-accent-blue/50 transition-colors cursor-pointer z-10`}
+              >
+                {tech.name}
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
-        <motion.div variants={fadeInUp(0.1)}>
-          <Card className="space-y-6">
-            <p className="text-xs uppercase tracking-[0.4em] text-white/50">Education</p>
-            <div className="space-y-5">
-              {timeline.map((step) => (
-                <div key={step.year} className="relative pl-5">
-                  <span className="absolute left-0 top-1.5 h-2 w-2 rounded-full bg-white" />
-                  <p className="text-sm text-white/60">{step.year}</p>
-                  <p className="text-base font-semibold">{step.role}</p>
-                  <p className="text-sm text-white/70">{step.desc}</p>
-                </div>
-              ))}
-            </div>
-          </Card>
+
+        {/* Right side - Content */}
+        <motion.div variants={fadeInUp(0.1)} className="space-y-6">
+          <div>
+            <p className="text-accent-blue text-sm uppercase tracking-[0.3em] mb-2">About Me</p>
+            <h2 className="text-4xl md:text-5xl font-display leading-tight">
+              Learning and Crafting{' '}
+              <span className="text-accent-blue">Digital Excellence</span>
+            </h2>
+          </div>
+
+          <p className="text-white/70 text-lg leading-relaxed">
+            As a passionate DevOps Engineer and Frontend Developer, I bring expertise in streamlining delivery pipelines and developing modern, responsive web applications. With a strong academic foundation in Computer Science and focused skill development in cloud platforms and automation, I aim to create robust engineering environments that elevate performance and enhance user experience.
+          </p>
+
+          <p className="text-white/70 leading-relaxed">
+            I enjoy solving complex problems through clean, efficient code and continuously expanding my knowledge. With hands-on experience from internships and personal projects, I am eager to contribute to innovative teams and create impactful digital solutions.
+          </p>
+
+          {/* Feature Cards */}
+          <div className="grid gap-4 sm:grid-cols-3 pt-4">
+            {features.map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{
+                  scale: 1.05,
+                  borderColor: 'rgba(96, 165, 250, 0.5)',
+                  boxShadow: '0 0 30px rgba(96, 165, 250, 0.3)',
+                }}
+                transition={{
+                  delay: 0.3 + index * 0.1,
+                  type: 'spring',
+                  stiffness: 300,
+                  damping: 20
+                }}
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 space-y-2 cursor-pointer group"
+              >
+                <motion.div
+                  className="text-accent-blue"
+                  whileHover={{ rotate: 360, scale: 1.2 }}
+                  transition={{ duration: 0.6, ease: 'easeInOut' }}
+                >
+                  {feature.icon}
+                </motion.div>
+                <h3 className="font-semibold text-sm group-hover:text-accent-blue transition-colors duration-300">{feature.title}</h3>
+                <p className="text-xs text-white/60 group-hover:text-white/80 transition-colors duration-300">{feature.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </motion.div>
     </div>
   </section>
 )
-
-
