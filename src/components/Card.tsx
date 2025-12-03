@@ -1,12 +1,17 @@
 import clsx from 'clsx'
-import type { HTMLAttributes } from 'react'
+import { motion } from 'framer-motion'
 
-type CardProps = HTMLAttributes<HTMLDivElement> & {
+
+import type { HTMLMotionProps } from 'framer-motion'
+
+type CardProps = HTMLMotionProps<'div'> & {
   gradient?: boolean
 }
 
 export const Card = ({ className, gradient = true, children, ...rest }: CardProps) => (
-  <div
+  <motion.div
+    whileHover={{ y: -5 }}
+    transition={{ type: 'spring', stiffness: 300, damping: 20 }}
     className={clsx(
       'glass relative overflow-hidden rounded-2xl p-6 transition-all duration-500',
       gradient && 'bg-glass-gradient',
@@ -15,7 +20,7 @@ export const Card = ({ className, gradient = true, children, ...rest }: CardProp
     {...rest}
   >
     {children}
-  </div>
+  </motion.div>
 )
 
 

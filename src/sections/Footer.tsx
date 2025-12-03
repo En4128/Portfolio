@@ -7,12 +7,12 @@ import { motion } from 'framer-motion'
 import type { ReactNode } from 'react'
 
 const iconMap: Record<string, ReactNode> = {
-  GitHub: <SiGithub />,
-  LinkedIn: <SiLinkedin />,
-  Twitter: <RiTwitterXFill />,
-  Insta: <SiInstagram />,
-  Email: <HiOutlineMail />,
-  Phone: <FiPhone />,
+  GitHub: <SiGithub className="text-white group-hover:text-[#181717]" />,
+  LinkedIn: <SiLinkedin className="text-white group-hover:text-[#0A66C2]" />,
+  Twitter: <RiTwitterXFill className="text-white group-hover:text-[#1DA1F2]" />,
+  Insta: <SiInstagram className="text-white group-hover:text-[#E4405F]" />,
+  Email: <HiOutlineMail className="text-white group-hover:text-[#EA4335]" />,
+  Phone: <FiPhone className="text-white group-hover:text-[#34A853]" />,
 }
 
 export const Footer = () => (
@@ -44,7 +44,7 @@ export const Footer = () => (
             className="group flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-3 text-white/70 transition hover:bg-white/10 hover:border-white/30"
             whileHover={{ y: -6, scale: 1.1, boxShadow: '0 0 20px rgba(255,255,255,0.1)' }}
           >
-            <span className="text-xl text-white/80 transition group-hover:text-white">{iconMap[link.label] ?? <SiGithub />}</span>
+            <span className="text-xl transition">{iconMap[link.label] ?? <SiGithub />}</span>
           </motion.a>
         ))}
       </div>

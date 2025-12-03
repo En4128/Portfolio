@@ -8,8 +8,9 @@ import { Contact } from './sections/Contact'
 import { Footer } from './sections/Footer'
 import { NavBar } from './sections/NavBar'
 import type { SectionId } from './utils/constants'
+import { ScrollProgress } from './components/ScrollProgress'
 
-import { BackgroundGlow } from './components/BackgroundGlow'
+
 
 function App() {
   const sectionIds = useMemo<SectionId[]>(() => ['hero', 'about', 'skills', 'projects', 'contact'], [])
@@ -69,7 +70,8 @@ function App() {
   return (
     <>
       <Loader progress={progress} isVisible={showLoader} />
-      <BackgroundGlow />
+      <ScrollProgress />
+
       <div className="relative">
         <NavBar activeSection={activeSection} onNavigate={handleNavigate} />
         <main className="space-y-12">

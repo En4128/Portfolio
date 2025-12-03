@@ -19,7 +19,32 @@ export const Hero = ({ onNavigate }: HeroProps) => (
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.4em] text-white/60 mx-auto lg:mx-0">
             <span className="h-2 w-2 rounded-full bg-accent-pink animate-pulse" /> Portfolio
           </div>
-          <h1 className="mt-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display leading-tight">Hi, I'm Elangovan</h1>
+          <motion.h1
+            className="mt-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display leading-tight"
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.05,
+                },
+              },
+            }}
+          >
+            {Array.from("Hi, I'm Elangovan").map((char, index) => (
+              <motion.span
+                key={index}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+              >
+                {char}
+              </motion.span>
+            ))}
+          </motion.h1>
           <p className="mt-6 text-base sm:text-lg text-white/70 max-w-2xl mx-auto lg:mx-0">
             I blend narrative UX with automation-heavy backends so teams can launch ambitious ideas without chaos. From async FastAPI gateways to motion-rich product surfaces and Kubernetes delivery
             rails—this is what clarity, velocity, and craftsmanship look like.
