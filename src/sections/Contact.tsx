@@ -32,6 +32,7 @@ export const Contact = () => {
 
     setStatus('loading')
     setErrorMessage('')
+    setErrors({})
 
     try {
       const response = await fetch('https://portfolio-5dhr.onrender.com/api/contact', {
@@ -44,29 +45,31 @@ export const Contact = () => {
 
       const result = await response.json()
 
-      if (result.success) {
+      // ✅ This expects backend to send: { success: true, message: "..." }
+      if (response.ok && result.success) {
         setStatus('success')
         setForm({ name: '', email: '', message: '' })
         setTimeout(() => setStatus('idle'), 4000)
       } else {
         setStatus('error')
-        setErrorMessage(result.message || 'Failed to send message')
+        const msg = result.message || 'Failed to send message'
+        setErrorMessage(msg)
 
-        // Set specific field errors if provided by backend
-        if (result.message.includes('name')) {
-          setErrors({ name: result.message })
-        } else if (result.message.includes('email')) {
-          setErrors({ email: result.message })
-        } else if (result.message.includes('context') || result.message.includes('message')) {
-          setErrors({ message: result.message })
+        // Set specific field errors if provided by backend message
+        if (msg.toLowerCase().includes('name')) {
+          setErrors({ name: msg })
+        } else if (msg.toLowerCase().includes('email')) {
+          setErrors({ email: msg })
+        } else if (msg.toLowerCase().includes('context') || msg.toLowerCase().includes('message')) {
+          setErrors({ message: msg })
         } else {
-          setErrors({ message: result.message })
+          setErrors({ message: msg })
         }
       }
     } catch (error) {
       console.error('Network error:', error)
       setStatus('error')
-      setErrorMessage('Network error. Please check if the backend server is running.')
+      setErrorMessage('Network error. Please check if the backend server is reachable.')
       setErrors({ message: 'Network error. Please try again.' })
     }
   }
@@ -162,7 +165,6 @@ export const Contact = () => {
               ❌ {errorMessage}
             </motion.p>
           )}
-
         </motion.form>
       </div>
     </section>
