@@ -34,14 +34,16 @@ export const Contact = () => {
     setErrorMessage('')
     setErrors({})
 
-    try {
-      const response = await fetch('https://portfolio-5dhr.onrender.com/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(form),
-      })
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
+try {
+  const response = await fetch(`${API_BASE_URL}/api/contact`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(form),
+  })
 
       const result = await response.json()
 
