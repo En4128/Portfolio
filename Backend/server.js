@@ -11,14 +11,12 @@ dotenv.config();
 const app = express();
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Middleware
-app.use(cors({
-  origin: 'http://localhost:5173', // Your Vite frontend URL
-  credentials: true
-}));
 
 app.use(cors({
-  origin: '*',
+  origin: [
+    'http://localhost:5173',
+    'https://elango-alpha.vercel.app/'
+  ],
   methods: ['GET', 'POST'],
 }));
 
