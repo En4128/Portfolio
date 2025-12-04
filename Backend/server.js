@@ -16,6 +16,12 @@ app.use(cors({
   origin: 'http://localhost:5173', // Your Vite frontend URL
   credentials: true
 }));
+
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST'],
+}));
+
 app.use(express.json());
 
 // Connect to MongoDB
