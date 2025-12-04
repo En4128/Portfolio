@@ -6,6 +6,7 @@ import {
   SiDocker,
   SiExpress,
   SiGithubactions,
+  SiMongodb,
   SiHtml5,
   SiJavascript,
   SiKubernetes,
@@ -43,6 +44,7 @@ const toolRows: ToolRow[] = [
       { name: 'Python', Icon: SiPython, color: '#FFD43B' },
       { name: 'Express', Icon: SiExpress, color: '#EEEEEE' },
       { name: 'Git', Icon: SiGit, color: '#F05032' },
+      { name: 'Mongodb', Icon: SiMongodb, color: '#2C974B' },
      
     ],
   },

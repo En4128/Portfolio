@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { fadeInUp, staggerContainer } from '../utils/animations'
-import { FiCode, FiZap, FiLayers } from 'react-icons/fi'
+import { FiCode, FiGitBranch, FiSettings } from 'react-icons/fi'
 
 const techLabels = [
   { name: 'Docker', position: '-top-4 -left-8' },
@@ -16,12 +16,12 @@ const features = [
     description: 'Writing maintainable code',
   },
   {
-    icon: <FiLayers className="text-2xl" />,
+    icon: <FiSettings className="text-2xl" />,
     title: 'DevOps',
     description: 'Deployment and automation',
   },
   {
-    icon: <FiZap className="text-2xl" />,
+    icon: <FiGitBranch className="text-2xl" />,
     title: 'CI/CD',
     description: 'Continuous Integration and Deployment',
   },
@@ -46,13 +46,27 @@ export const About = () => (
             <div className="absolute inset-[-40px] rounded-full border border-white/5"></div>
 
             {/* Circular Profile Photo */}
-            <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-accent-blue/40 shadow-[0_0_60px_rgba(96,165,250,0.4)]">
+            <motion.div
+              className="absolute inset-0 rounded-full overflow-hidden border-4 border-accent-blue/60 shadow-[0_0_40px_rgba(96,165,250,0.6),0_0_80px_rgba(96,165,250,0.4),0_0_120px_rgba(96,165,250,0.2)]"
+              animate={{
+                boxShadow: [
+                  '0 0 40px rgba(96,165,250,0.6), 0 0 80px rgba(96,165,250,0.4), 0 0 120px rgba(96,165,250,0.2)',
+                  '0 0 60px rgba(96,165,250,0.8), 0 0 100px rgba(96,165,250,0.5), 0 0 140px rgba(96,165,250,0.3)',
+                  '0 0 40px rgba(96,165,250,0.6), 0 0 80px rgba(96,165,250,0.4), 0 0 120px rgba(96,165,250,0.2)',
+                ],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
               <img
                 src="/public/img.jpg"
                 alt="Profile"
                 className="w-full h-full object-cover"
               />
-            </div>
+            </motion.div>
 
             {/* Floating Tech Labels */}
             {techLabels.map((tech, index) => (
@@ -73,7 +87,7 @@ export const About = () => (
                     delay: index * 0.5
                   }
                 }}
-                className={`absolute ${tech.position} bg-black/80 backdrop-blur-md border border-white/30 rounded-lg px-4 py-2 text-sm font-medium shadow-lg hover:border-accent-blue/50 transition-colors cursor-pointer z-10`}
+                className={`absolute ${tech.position} bg-black/80 backdrop-blur-md border border-accent-blue/40 rounded-lg px-4 py-2 text-sm font-medium shadow-[0_0_20px_rgba(96,165,250,0.4),0_0_40px_rgba(96,165,250,0.2)] hover:border-accent-blue/70 hover:shadow-[0_0_30px_rgba(96,165,250,0.6),0_0_60px_rgba(96,165,250,0.3)] transition-all duration-300 cursor-pointer z-10`}
               >
                 {tech.name}
               </motion.div>
@@ -85,9 +99,9 @@ export const About = () => (
         <motion.div variants={fadeInUp(0.1)} className="space-y-6">
           <div>
             <p className="text-accent-blue text-sm uppercase tracking-[0.3em] mb-2">About Me</p>
-            <h2 className="text-4xl md:text-5xl font-display leading-tight">
-              Learning and Crafting{' '}
-              <span className="text-accent-blue">Digital Excellence</span>
+            <h2 className="text-3xl md:text-5xl font-display leading-tight">
+              Creating Success By {' '}
+              <span className="text-accent-blue">Constant Improvement</span>
             </h2>
           </div>
 
