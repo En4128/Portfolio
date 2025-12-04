@@ -1,6 +1,6 @@
 import { socialLinks } from '../utils/constants'
-import { SiGithub, SiInstagram, SiLinkedin } from 'react-icons/si'
-import { HiOutlineMail } from 'react-icons/hi'
+import { SiGithub, SiGmail , SiInstagram, SiLinkedin } from 'react-icons/si'
+
 import { FiPhone } from 'react-icons/fi'
 import { motion } from 'framer-motion'
 import type { ReactNode } from 'react'
@@ -9,7 +9,7 @@ const iconMap: Record<string, ReactNode> = {
   GitHub: <SiGithub className="text-white group-hover:text-[#181717]" />,
   LinkedIn: <SiLinkedin className="text-white group-hover:text-[#0A66C2]" />,
   Insta: <SiInstagram className="text-white group-hover:text-[#E4405F]" />,
-  Email: <HiOutlineMail className="text-white group-hover:text-[#EA4335]" />,
+  Email: <SiGmail className="text-white group-hover:text-[#EA4335]" />,
   Phone: <FiPhone className="text-white group-hover:text-[#34A853]" />,
 }
 

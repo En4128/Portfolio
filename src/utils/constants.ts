@@ -52,19 +52,19 @@ export const projects: Project[] = [
     tech: ['OpenCV', 'python', 'Machine Learning'],
     link: 'https://github.com/En4128/Face-Recognition-Based-Attendance-Management-System.git',
   },
-   {
+  {
     title: 'Anime Website',
     description: 'A Simple anime website which is used to watch anime made with MERN STACK and deployed using aws & Devops',
     tags: ['AWS', 'Mongodb', 'Express'],
     tech: ['Docker', 'Github-Actions', 'MERN'],
     link: 'https://github.com/En4128/Docker-voting-app.git',
   },
-  
+
   {
     title: 'Spring PetClinic',
     description: 'DevOps control plane deployments with GitHub,Docker and Kubernetes.',
     tags: ['Jenkins', 'Kubernetes', 'Helm'],
-    tech: ['Docker', 'Kubernetes', 'Github','Jenkins'],
+    tech: ['Docker', 'Kubernetes', 'Github', 'Jenkins'],
     link: 'https://github.com/En4128/spring-petclinic-project.git',
   },
   {
@@ -81,16 +81,15 @@ export const projects: Project[] = [
     tech: ['Python', 'Redis', 'Step Functions'],
     link: 'https://github.com/En4128/Docker-voting-app.git',
   },
- 
+
 
 ]
 
 export const socialLinks = [
   { label: 'GitHub', href: 'https://github.com/En4128' },
   { label: 'LinkedIn', href: 'https://linkedin.com/in/elangovan-n-4b4445285' },
-  { label: 'Twitter', href: 'https://x.com/Elangov24371626' },
   { label: 'Insta', href: 'https://www.instagram.com/_elango.27?igsh=eGI3NDRqbGZ2ajZn' },
-  { label: 'mail', href: 'mailto:elango200327@gmail.com' },
+  { label: 'Email', href: 'mailto:elango200327@gmail.com' },
   { label: 'Phone', href: 'tel:+918056125873' },
 ]
 
