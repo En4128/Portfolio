@@ -62,7 +62,7 @@ export const About = () => (
               }}
             >
               <img
-                src="/public/img.jpg"
+                src="/img.jpg"
                 alt="Profile"
                 className="w-full h-full object-cover"
               />
