@@ -21,7 +21,7 @@ app.use(express.json());
 // Connect to MongoDB
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/portfolio_contact');
+    await mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://admin:admin%40123@cluster0.wjmf3kg.mongodb.net/myProject?retryWrites=true&w=majority');
     console.log('✅ Connected to MongoDB');
   } catch (error) {
     console.log('❌ MongoDB connection error:', error);
